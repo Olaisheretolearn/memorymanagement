@@ -1,5 +1,6 @@
 package org.example;
 
+import java.util.EmptyStackException;
 import java.util.Stack;
 
 public class MemoryStackDemo {
@@ -33,12 +34,17 @@ public class MemoryStackDemo {
         System.out.println("Memory allocated for objects: " + memoryStack + "\n");
 
         // Deallocate memory by popping objects from the stack
-        Object poppedObj;
-        while ((poppedObj = memoryStack.pop()) != null) {
-            System.out.println("Deallocated memory for object: " + poppedObj);
-        }
+        try {
+            Object poppedObj;
+            while ((poppedObj = memoryStack.pop()) != null) {
+                System.out.println("Deallocated memory for object: " + poppedObj);
+            }
 
-        System.out.println("Memory deallocated for all objects. Current stack: " + memoryStack);
+            System.out.println("Memory deallocated for all objects. Current stack: " + memoryStack);
+        }catch (EmptyStackException e){
+            System.out.println("\n \n \n");
+            System.out.println("That's all the stacks we have ");
+        }
 
 
         System.out.println("JVM is about to exit , and so everything within it....\n");
