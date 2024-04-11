@@ -1,7 +1,10 @@
+package org.example;
+
 import java.util.Stack;
 
 public class MemoryStackDemo {
     public static void main(String[] args) {
+        System.out.println("\n  \n");
         System.out.println("If you can see this , source code already COMPILED to bytescode......\n");
         System.out.println("JVM started....\n");
         System.out.println("heap for objects created....\n");
@@ -27,7 +30,7 @@ public class MemoryStackDemo {
         memoryStack.push(obj2);
         memoryStack.push(obj3);
 
-        System.out.println("Memory allocated for objects: " + memoryStack);
+        System.out.println("Memory allocated for objects: " + memoryStack + "\n");
 
         // Deallocate memory by popping objects from the stack
         Object poppedObj;
