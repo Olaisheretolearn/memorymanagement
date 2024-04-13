@@ -1,0 +1,12 @@
+In most cases, yes. When the garbage collector (GC) runs, it usually requires other threads and processes to pause, a phase commonly known as "stop-the-world." This is done to ensure consistency and avoid conflicts while the GC inspects and manipulates the memory.
+The stop-the-world phase is necessary for most garbage collection algorithms to work correctly. During this phase:
+
+    All application threads are suspended and cannot modify the object graph.
+    The GC identifies live objects and updates references.
+    Unused objects are reclaimed, and memory is compacted.
+
+Once the garbage collection process is complete, the application threads are resumed, and the program continues to execute normally.
+However, it's worth mentioning that some advanced garbage collectors, like the concurrent and parallel collectors in modern JVMs, aim to minimize the impact of garbage collection by allowing application threads to continue running or performing garbage collection in parallel with application threads. These collectors are designed to reduce the pause times caused by garbage collection and provide a more responsive and efficient memory management system.
+Note: System.gc() and Runtime.gc() are the methods which requests for Garbage collection to JVM explicitly but it doesn’t ensures garbage collection as the final decision of garbage collection is of JVM only. Write a java code that has an object lose its reference and call the garbage collector on its ass , Print the object before garbage collector and after Note: System.gc() and Runtime.gc() are the methods which requests for Garbage collection to JVM explicitly but it doesn’t ensures garbage collection as the final decision of garbage collection is of JVM only.
+As you mentioned, System.gc() and Runtime.gc() can be used to suggest garbage collection, but the JVM ultimately decides when to perform garbage collection. In Java, once an object loses all references to it, it becomes eligible for garbage collection. However, we cannot forcefully destroy an object in Java, as the garbage collector handles memory management.
+Here's a simple Java code example demonstrating an object losing its reference and calling the garbage collector:
